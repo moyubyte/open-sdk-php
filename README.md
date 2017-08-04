@@ -8,7 +8,7 @@
 - /SignDemo.php
 - /lib/YZSignClient.php
 *此方式将在2017年10月31日后废弃不再支持，请尽快换用免签名调用
-，，，
+
 3.免签名调用
 - /TokenDemo.php
 - /YZTokenClient.php
