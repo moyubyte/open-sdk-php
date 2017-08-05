@@ -1,12 +1,13 @@
 <?php
 /**
- * 有赞推送服务消息接收示例 https://www.youzanyun.com/docs/guide/push/692
+ * 有赞推送服务消息接收示例
+ * Doc：https://www.youzanyun.com/docs/guide/push/692
  */
 
-$client_id = "";
-$client_secret = "";
+$client_id = "";//应用的 client_id
+$client_secret = "";//应用的 client_secret
 
-$json = file_get_contents('php://input'); //接收推送数据
+$json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
 /**
@@ -22,17 +23,14 @@ if($sign != $data['sign']){
     var_dump($result);
 }
 
-
 /**
- * msg是经过unicode（UTF-8）编码的消息对象,所以要进行解码
+ * msg内容经过 urlencode 编码，需进行解码
  */
 $msg = json_decode(urldecode($msg),true);
 
-
-if($data['type'] == "TRADE"){
-    //处理交易信息
-}
-
-if($data['type'] == "ITEM"){
-    //处理商品信息
+/**
+ * 根据 type 来识别消息事件类型，具体的 type 值以文档为准，此处仅是示例
+ */
+if($data['type'] == "SCRM_CARD"){
+    //处理会员卡商家侧消息
 }
